@@ -1,5 +1,5 @@
 {
-    "name": "charon/open1688",
+    "name": "chudaozhe/open1688",
     "description": "1688开放平台接口",
     "require": {
         "php": ">=7.2"
@@ -8,6 +8,10 @@
         {
             "name": "charon",
             "email": "lysily@vip.qq.com"
+        },
+        {
+            "name": "cw",
+            "email": "chudaozhe@outlook.com"
         }
     ],
     "minimum-stability": "dev"
