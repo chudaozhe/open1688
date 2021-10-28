@@ -64,7 +64,7 @@ class AlibabaOauth extends Exception {
      * @param string $state
      * @return string
      */
-    private static function createOauthUrl($appKey , $redirect_uri , $state = 'cross-1688'){
+    public static function createOauthUrl($appKey , $redirect_uri , $state = 'cross-1688'){
         return sprintf(self::OAUTH_URL , $appKey , urlencode($redirect_uri) , $state);
     }
 
