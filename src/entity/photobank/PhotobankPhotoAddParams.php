@@ -17,8 +17,12 @@ class PhotobankPhotoAddParams extends BaseEntityParams{
 	 * @param $name
 	 * @param $webSite
 	 */
-	public function __construct($name , $webSite){
+	public function __construct($name, $albumID, $imageBytes, $description='', $drawTxt=false, $webSite='1688'){
 		$this->name = $name;
+		$this->albumID = $albumID;
+		$this->description = $description;
+		$this->drawTxt = $drawTxt;
+		$this->imageBytes = $imageBytes;
 		$this->webSite = $webSite;
 	}
 

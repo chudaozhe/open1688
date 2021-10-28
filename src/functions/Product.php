@@ -6,6 +6,8 @@ use AlibabaOpen\core\BaseClient;
 use AlibabaOpen\entity\product\{
 	ProductDeleteParams,
 	ProductExpireParams,
+	ProductPtsTagQueryParams,
+	ProductPtsTagUpdateParams,
 	ProductRepostParams,
 	ProductRepublishParams,
 	ProductIncrementModifyParams,
@@ -18,7 +20,8 @@ use AlibabaOpen\entity\product\{
 	ProductGetByIdListParams,
 	ProductModifyStockParams,
 	ProductEditParams,
-	ProductGetByStatusParams
+	ProductGetByStatusParams,
+	SendGoodsAddressCreateParams
 };
 
 /**
@@ -199,5 +202,34 @@ class Product extends BaseClient
 		$this->url_info    = 'com.alibaba.product:alibaba.product.getByStatus-1';
 		return $this;
 	}
-
+	/**
+	 * 发货地址创建接口
+	 * @param \AlibabaOpen\entity\product\SendGoodsAddressCreateParams $sendGoodsAddressCreateParams
+	 * @return $this
+	 */
+	public function sendGoodsAddressCreate(SendGoodsAddressCreateParams $params):Product{
+		$this->app->params = $params->build();
+		$this->url_info    = 'com.alibaba.product:sendGoodsAddress.create-1';
+		return $this;
+	}
+	/**
+	 * 买家保障服务查询
+	 * @param \AlibabaOpen\entity\product\ProductPtsTagQueryParams $params
+	 * @return $this
+	 */
+	public function productPtsTagQuery(ProductPtsTagQueryParams $params){
+		$this->app->params = $params->build();
+		$this->url_info    = 'com.alibaba.product:alibaba.product.ptsTag.query-1';
+		return $this;
+	}
+	/**
+	 * 买家保障服务写入
+	 * @param \AlibabaOpen\entity\product\ProductPtsTagUpdateParams $params
+	 * @return $this
+	 */
+	public function productPtsTagUpdate(ProductPtsTagUpdateParams $params){
+		$this->app->params = $params->build();
+		$this->url_info    = 'com.alibaba.product:alibaba.product.ptsTag.update-1';
+		return $this;
+	}
 }

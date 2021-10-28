@@ -15,9 +15,13 @@ class ProductGetParams extends BaseEntityParams{
 	/**
 	 * ProductGetParams constructor.
 	 * @param $productID
+	 * @param $webSite
+	 * @param $scene
 	 */
-	public function __construct($productID){
+	public function __construct($productID, $webSite='1688', $scene='1688'){
 		$this->productID = $productID;
+		$this->webSite=$webSite;
+		$this->scene=$scene;
 	}
 
 	/**

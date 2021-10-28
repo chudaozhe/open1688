@@ -14,7 +14,10 @@ class PhotobankPhotoGetListParams extends BaseEntityParams{
 	 * PhotobankPhotoGetListParams constructor.
 	 * @param $webSite
 	 */
-	public function __construct($webSite){
+	public function __construct($albumID, $pageNo=1, $pageSize=30, $webSite=1688){
+		$this->albumID=$albumID;
+		$this->pageNo=$pageNo;
+		$this->pageSize=$pageSize;
 		$this->webSite = $webSite;
 	}
 

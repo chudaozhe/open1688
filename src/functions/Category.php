@@ -10,8 +10,8 @@ use AlibabaOpen\entity\category\{
 	CategoryGetSPUInfoParams,
 	CategorySearchByKeywordParams,
 	CategoryGetParams,
-	UserDefineCategoryAddParams
-};
+	UserCategoryListGetParams,
+	UserDefineCategoryAddParams};
 
 /**
  * 类目模块
@@ -95,5 +95,10 @@ class Category extends BaseClient
 	    $this->url_info    = 'com.alibaba.product:alibaba.userDefine.category.add-1';
 	    return $this;
     }
-	
+    //
+	public function userCategoryListGet(UserCategoryListGetParams $userCategoryListGetParams){
+		$this->app->params = $userCategoryListGetParams->build();
+		$this->url_info    = 'com.alibaba.product:alibaba.userCategory.list.get-1';
+		return $this;
+	}
 }

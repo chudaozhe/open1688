@@ -37,9 +37,33 @@ class ProductListGetParams extends BaseEntityParams{
 	 * @param $pageNo
 	 * @param $pageSize
 	 */
-	public function __construct($pageNo , $pageSize){
+	public function __construct($pageNo=1, $pageSize=20, $signs=[], $statusList=[], $categoryId=0, $startModifyTime='', $endModifyTime='', $subjectKey='', $cargoNumber='', $productIds=[], $beginStar=-1, $endStar=-1, $groupIds=0, $startPublishTime='', $endPublishTime='', $startExpiredTime='', $endExpiredTime='', $priceStart=0, $priceEnd=0, $orderByCondition='', $orderByType=0, $supportOnlineTrade=true, $privateOffer=false, $needDetail=false, $needFreight=false, $needUserCategoryInfo=false){
 		$this->pageNo = $pageNo;
 		$this->pageSize = $pageSize;
+        if (is_array($signs) && count($signs)>0) $this->signs=$signs;
+        if (is_array($statusList) && count($statusList)>0) $this->statusList=$statusList;
+        if ($categoryId>0) $this->categoryId=$categoryId;
+        if (!empty($startModifyTime)) $this->startModifyTime=$startModifyTime;
+        if (!empty($endModifyTime)) $this->endModifyTime=$endModifyTime;
+        if (!empty($subjectKey)) $this->subjectKey=$subjectKey;
+        if (!empty($cargoNumber)) $this->cargoNumber=$cargoNumber;
+        if (is_array($productIds) && count($productIds)>0) $this->productIds=$productIds;
+        if ($beginStar>-1) $this->beginStar=$beginStar;
+        if ($endStar>-1) $this->endStar=$endStar;
+        if ($groupIds>0) $this->groupIds=$groupIds;
+        if (!empty($startPublishTime)) $this->startPublishTime=$startPublishTime;
+        if (!empty($endPublishTime)) $this->endPublishTime=$endPublishTime;
+        if (!empty($startExpiredTime)) $this->startExpiredTime=$startExpiredTime;
+        if (!empty($endExpiredTime)) $this->endExpiredTime=$endExpiredTime;
+        if ($priceStart>0) $this->priceStart=$priceStart;
+        if ($priceEnd>0) $this->priceEnd=$priceEnd;
+        if (!empty($orderByCondition)) $this->orderByCondition=$orderByCondition;
+        $this->orderByType=$orderByType==0?'ASC':'DESC';
+        $this->supportOnlineTrade=$supportOnlineTrade;
+        $this->privateOffer=$privateOffer;
+        $this->needDetail=$needDetail;
+        $this->needFreight=$needFreight;
+        $this->needUserCategoryInfo=$needUserCategoryInfo;
 	}
 
 	/**

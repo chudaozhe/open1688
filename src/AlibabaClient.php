@@ -23,7 +23,7 @@ use AlibabaOpen\provider\TradeProvider;
  * @property \AlibabaOpen\functions\Service service
  * @property \AlibabaOpen\functions\Trade trade
  */
-class AlibabaCross extends ContainerBase
+class AlibabaClient extends ContainerBase
 {
     /**
      * AlibabaClient constructor.

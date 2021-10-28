@@ -22,8 +22,13 @@ class ProductIncrementModifyParams extends BaseEntityParams{
 	 * @param $productID
 	 * @param $webSite
 	 */
-	public function __construct($productID , $webSite){
+	public function __construct($productID, $fields=[], $webSite='1688'){
 		$this->productID = $productID;
+		if($fields){
+			foreach($fields as $field=>$param){
+				$this->$field=$param;
+			}
+		}
 		$this->webSite = $webSite;
 	}
 
