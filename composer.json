@@ -14,5 +14,8 @@
             "email": "chudaozhe@outlook.com"
         }
     ],
+    "autoload": {
+        "psr-4": {"AlibabaOpen\\": "src/"}
+    },
     "minimum-stability": "dev"
 }
