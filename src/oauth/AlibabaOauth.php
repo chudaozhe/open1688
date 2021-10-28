@@ -19,19 +19,19 @@ class AlibabaOauth extends Exception {
      * @param string $state
      * @return array
      */
-    public static function oauth($appKey , $appSecret, $redirect_uri , $state = 'cross-1688'){
-        $params = $_GET;
-        if(!(array_key_exists('code' , $params) && $state == $params['state'])){
-            header(sprintf('Location:%s' , self::createOauthUrl($appKey , $redirect_uri , $state)));
-            exit;
-        }
-        $retJson = self::accessToken($appKey , $appSecret , $redirect_uri , $params['code']);
-        $dataArray = json_decode($retJson, true);
-        if(!array_key_exists('access_token' ,$dataArray)){
-            throw new Exception($dataArray['error_description']);
-        }
-        return $dataArray;
-    }
+//    public static function oauth($appKey , $appSecret, $redirect_uri , $state = 'cross-1688'){
+//        $params = $_GET;
+//        if(!(array_key_exists('code' , $params) && $state == $params['state'])){
+//            header(sprintf('Location:%s' , self::createOauthUrl($appKey , $redirect_uri , $state)));
+//            exit;
+//        }
+//        $retJson = self::accessToken($appKey , $appSecret , $redirect_uri , $params['code']);
+//        $dataArray = json_decode($retJson, true);
+//        if(!array_key_exists('access_token' ,$dataArray)){
+//            throw new Exception($dataArray['error_description']);
+//        }
+//        return $dataArray;
+//    }
 
     /**
      * @param $appKey
@@ -49,7 +49,13 @@ class AlibabaOauth extends Exception {
             'redirect_uri'=>$redirect_uri,
             'code'=>$code
         ];
-        return BaseClient::curlRequest(sprintf(self::TOKEN_URL , $appKey) , $params , 'post');
+        $retJson=BaseClient::curlRequest(sprintf(self::TOKEN_URL , $appKey) , $params , 'post');
+        $dataArray = json_decode($retJson, true);
+        if(!array_key_exists('access_token' ,$dataArray)){
+            echo $dataArray['error_description'];
+            return false;
+        }
+        return $dataArray;
     }
 
     /**
