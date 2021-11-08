@@ -50,12 +50,7 @@ class AlibabaOauth extends Exception {
             'code'=>$code
         ];
         $retJson=BaseClient::curlRequest(sprintf(self::TOKEN_URL , $appKey) , $params , 'post');
-        $dataArray = json_decode($retJson, true);
-        if(!array_key_exists('access_token' ,$dataArray)){
-            echo $dataArray['error_description'];
-            return false;
-        }
-        return $dataArray;
+        return json_decode($retJson, true);
     }
 
     /**
